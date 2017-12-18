@@ -1,4 +1,4 @@
-#include <iostream>
+##include <iostream>
 #include <sstream>
 using namespace std;
 
@@ -29,14 +29,14 @@ bool wwin( char xo[9], char & winner, bool &f){
      winner = 'x';
      } else 
      
-     if (((xo[0]==xo[1]) && (xo[1]==xo[2]) && (xo[0]== 'x')) ||
-     ((xo[3]==xo[4]) && (xo[4]==xo[5]) && (xo[3]== 'x')) ||
-     ((xo[6]==xo[7]) && (xo[7]==xo[8]) && (xo[8]== 'x')) ||
-     ((xo[0]==xo[3]) && (xo[3]==xo[6]) && (xo[6]== 'x')) ||
-     ((xo[1]==xo[4]) && (xo[4]==xo[7]) && (xo[7]== 'x')) ||
-     ((xo[2]==xo[5]) && (xo[5]==xo[8]) && (xo[8]== 'x')) ||
-     ((xo[0]==xo[4]) && (xo[4]==xo[8]) && (xo[0]== 'x')) ||
-     ((xo[2]==xo[4]) && (xo[4]==xo[6]) && (xo[6]== 'x'))) {
+     if (((xo[0]==xo[1]) && (xo[1]==xo[2]) && (xo[0]== '0')) ||
+     ((xo[3]==xo[4]) && (xo[4]==xo[5]) && (xo[3]== '0')) ||
+     ((xo[6]==xo[7]) && (xo[7]==xo[8]) && (xo[8]== '0')) ||
+     ((xo[0]==xo[3]) && (xo[3]==xo[6]) && (xo[6]== '0')) ||
+     ((xo[1]==xo[4]) && (xo[4]==xo[7]) && (xo[7]== '0')) ||
+     ((xo[2]==xo[5]) && (xo[5]==xo[8]) && (xo[8]== '0')) ||
+     ((xo[0]==xo[4]) && (xo[4]==xo[8]) && (xo[0]== '0')) ||
+     ((xo[2]==xo[4]) && (xo[4]==xo[6]) && (xo[6]== '0'))) {
      f = true;
      winner = '0';
      } 
@@ -50,7 +50,7 @@ bool draw (char xo[9], bool &drw)
      if (xo[i] != ' ') n++;
   }
   if (n==9) drw = true; 
-  return draw;
+  return drw;
 }
 
 
@@ -67,7 +67,7 @@ int main ()
   for (int i =0 ; i<9; i++)
    {
      xo[i]=' ';
-     nam[i]= " ";
+     nam[i]= "";
      
    }
     table(xo);
@@ -115,8 +115,8 @@ int main ()
        if (hw) {
          cout << winner << " won"; }
          
-         
-         if (draw(xo,drw)){ cout << "drawn";
+         drw = draw(xo,drw);
+         if (drw){ cout << "drawn";
        }}
     
    while (!hw);
